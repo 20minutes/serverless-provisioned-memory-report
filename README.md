@@ -3,7 +3,7 @@
 [![serverless](http://public.serverless.com/badges/v3.svg)](https://serverless.com/)
 [![Build Status](https://github.com/20minutes/serverless-provisioned-memory-report/actions/workflows/tests.yml/badge.svg)](https://github.com/20minutes/serverless-provisioned-memory-report/actions/workflows/tests.yml)
 
-Analyse logs from Lambdas to determine the provisionned memory usage (defined, max & over) and post them to Slack. You'll then be able to adjust the memory size of your lambdas and _hopefully_ save money 💸
+Analyse logs from Lambdas to determine the provisioned memory usage (defined, max & over) and post them to Slack. You'll then be able to adjust the memory size of your lambdas and _hopefully_ save money 💸
 
 ![Example](https://user-images.githubusercontent.com/62333/181353176-6325fb25-8675-4012-b049-771e287a5bde.png)
 
@@ -33,7 +33,7 @@ function3                 300         286      214       72
 Here are the actions you might take:
 
 1. `function1` must have more memory, define it to `1024` (or at least to something more that `768`)
-2. `function2` is over provisionned by a lot, lower it to `128`
+2. `function2` is over provisioned by a lot, lower it to `128`
 3. `function3` is fine
 
 ## Prerequisites
