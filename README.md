@@ -42,10 +42,11 @@ Here are the actions you might take:
 - Serverless CLI >=3.17.0
 - An AWS account
 - Defined [provider credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+- An [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) from Slack
 
 ## Deploy the code
 
-Deploy the service using: `serverless deploy`
+Deploy the service using: `SLACK_WEBHOOK_URL="https://hooks.slack.com/services/xxxx" serverless deploy`
 
 By default
 
