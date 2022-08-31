@@ -36,7 +36,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.9",
     "@slack/webhook": "^6.1.0",
-    "aws-sdk": "^2.1182.0",
+    "aws-sdk": "^2.1206.0",
     "slack-table": "^0.1.2",
     "source-map-support": "^0.5.21"
   },
