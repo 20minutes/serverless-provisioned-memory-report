@@ -1,0 +1,119 @@
+frameworkVersion: ">=3.17.0"
+
+service: serverless-provisioned-memory-report
+
+plugins:
+    - serverless-webpack
+    - serverless-step-functions
+    - serverless-iam-roles-per-function
+
+provider:
+    name: aws
+    runtime: nodejs16.x
+    profile: default
+    region: ${opt:region, 'eu-west-1'}
+    logRetentionInDays: 30
+    memorySize: 256
+    versionFunctions: false
+    deploymentMethod: direct
+    architecture: arm64
+
+custom:
+    webpack:
+        includeModules:
+            forceExclude:
+                - aws-sdk
+        packager: yarn
+        packagerOptions:
+            ignoreScripts: true
+    serverless-iam-roles-per-function:
+        defaultInherit: true
+
+functions:
+    listLambdas:
+        handler: functions/listLambdas.handler
+        description: Check memory usage for all Lambdas from the current AWS account
+        iamRoleStatementsName: ${env:DEVELOPER, '20mn'}RoleLambdaProvisionedListLambdas
+        iamRoleStatements:
+            -
+                Effect: 'Allow'
+                Action:
+                    - lambda:ListFunctions
+                Resource: '*'
+    startQuery:
+        handler: functions/startQuery.handler
+        description: Check memory usage for all Lambdas from the current AWS account
+        iamRoleStatementsName: ${env:DEVELOPER, '20mn'}RoleLambdaProvisionedStartQuery
+        iamRoleStatements:
+            -
+                Effect: 'Allow'
+                Action:
+                    - logs:StartQuery
+                Resource: '*'
+    extractQueryResult:
+        handler: functions/extractQueryResult.handler
+        description: Check memory usage for all Lambdas from the current AWS account
+        iamRoleStatementsName: ${env:DEVELOPER, '20mn'}RoleLambdaProvisionedExtractQueryResult
+        iamRoleStatements:
+            -
+                Effect: 'Allow'
+                Action:
+                    - logs:GetQueryResults
+                Resource: '*'
+    reportToSlack:
+        handler: functions/reportToSlack.handler
+        description: Check memory usage for all Lambdas from the current AWS account
+        environment:
+            SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+
+stepFunctions:
+    stateMachines:
+        CheckProvisionedMemory:
+            name: CheckProvisionedMemory
+            definition:
+                Comment: A step function to check provisioned memory on Lambda
+                StartAt: ListLambdas
+                States:
+                    ListLambdas:
+                        Type: Task
+                        Resource:
+                            Fn::GetAtt: [listLambdas, Arn]
+                        Next: StartQueries
+                    StartQueries:
+                        Type: Map
+                        ItemsPath: "$.functions"
+                        ResultPath: "$.functions"
+                        Iterator:
+                            StartAt: StartQuery
+                            States:
+                                StartQuery:
+                                    Type: Task
+                                    Resource:
+                                        Fn::GetAtt: [startQuery, Arn]
+                                    Next: WaitForQueryToFinish
+                                WaitForQueryToFinish:
+                                    Type: Wait
+                                    Seconds: 10
+                                    Next: ExtractQueryResult
+                                ExtractQueryResult:
+                                    Type: Task
+                                    Resource:
+                                        Fn::GetAtt: [extractQueryResult, Arn]
+                                    Next: IsItFinish
+                                IsItFinish:
+                                    Type: Choice
+                                    Choices:
+                                        -
+                                            Variable: "$.running"
+                                            BooleanEquals: true
+                                            Next: WaitForQueryToFinish
+                                    Default: QueryDone
+                                QueryDone:
+                                    Type: Pass
+                                    End: true
+                        Next: ReportToSlack
+                    ReportToSlack:
+                        Type: Task
+                        Resource:
+                            Fn::GetAtt: [reportToSlack, Arn]
+                        End: true

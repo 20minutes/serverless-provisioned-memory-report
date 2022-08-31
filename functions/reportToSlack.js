@@ -1,0 +1,103 @@
+import slackTable from 'slack-table'
+import { IncomingWebhook } from '@slack/webhook'
+
+const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL || '')
+
+export async function handler(event, context, callback) {
+  const data = {
+    title: 'TOBEREMOVED',
+    columns: [
+      { width: 40, title: 'Function', dataIndex: 'func' },
+      { width: 8, title: 'Defined', dataIndex: 'defined', align: 'right' },
+      { width: 11, title: 'Provisioned', dataIndex: 'provisioned', align: 'right' },
+      { width: 8, title: 'Max', dataIndex: 'max', align: 'right' },
+      { width: 8, title: 'Over', dataIndex: 'over', align: 'right' },
+    ],
+    dataSource: [],
+  }
+  data.dataSource.push('-')
+
+  const noData = []
+
+  event.functions.forEach((report) => {
+    const func = report.name.replace(event.prefix, '')
+
+    if (report.maxMemoryUsedMB === 0) {
+      noData.push(func)
+    } else {
+      data.dataSource.push({
+        func,
+        defined: report.memorySize,
+        provisioned: Math.round(report.provisonedMemoryMB),
+        max: Math.round(report.maxMemoryUsedMB),
+        over: Math.round(report.overProvisionedMB),
+      })
+    }
+  })
+
+  const payload = {
+    link_names: false,
+    unfurl_links: false,
+    unfurl_media: true,
+    icon_emoji: ':face_with_monocle:',
+    username: 'Memory Provisioned Report',
+    channel: event.channel,
+  }
+
+  const blocks = [
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: `That report is based on logs from the past *${event.days}* days.`,
+      },
+    },
+  ]
+
+  if (event?.prefix) {
+    blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: `It only includes functions starting with: \`${event?.prefix}\`.`,
+      },
+    })
+  }
+
+  blocks.push({
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      // we don't want the title, we handle it ourself using a `header` block
+      text: slackTable(data).replace('*TOBEREMOVED*\n', ''),
+    },
+  })
+
+  if (event?.lambdasLimitReached !== false) {
+    blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: `We found *${event?.lambdasLimitReached}* functions, but we can only handle the first 20 of them.`,
+      },
+    })
+  }
+
+  if (noData.length > 0) {
+    blocks.push({
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        // eslint-disable-next-line prettier/prettier
+        text: `We did not found data for *${noData.length}* functions (\`${noData.join('`, `')}\`).`,
+      },
+    })
+  }
+
+  await webhook.send({
+    ...payload,
+    blocks,
+  })
+
+  return callback(null, 'Message sent')
+}
