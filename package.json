@@ -11,7 +11,7 @@
     "lint": "eslint functions/ tests/ webpack.config.js"
   },
   "devDependencies": {
-    "@20minutes/eslint-config": "^1.2.3",
+    "@20minutes/eslint-config": "^1.2.4",
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
