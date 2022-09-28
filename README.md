@@ -46,7 +46,9 @@ Here are the actions you might take:
 
 ## Deploy the code
 
-Deploy the service using: `SLACK_WEBHOOK_URL="https://hooks.slack.com/services/xxxx" serverless deploy`
+Create the `.env`: `cp .env.dist .env` and then update the Slack webhook url in the file.
+
+Deploy the service using: `serverless deploy`
 
 By default
 

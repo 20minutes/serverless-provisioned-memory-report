@@ -1,6 +1,7 @@
 frameworkVersion: ">=3.17.0"
 
 service: serverless-provisioned-memory-report
+useDotenv: true
 
 plugins:
     - serverless-webpack
