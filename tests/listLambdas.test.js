@@ -51,6 +51,7 @@ describe('List Lambdas', () => {
       prefix: undefined,
       channel: 'C03PE644XH8',
       days: 7,
+      page: 1,
       functions: [
         { name: 'service-env-function-1', memorySize: 768, days: 7 },
         { name: 'service-env-function-2', memorySize: 512, days: 7 },
@@ -93,6 +94,7 @@ describe('List Lambdas', () => {
       prefix: 'service2',
       channel: '#general',
       days: 70,
+      page: 1,
       functions: [{ name: 'service2-env-function-1', memorySize: 512, days: 70 }],
     })
   })
@@ -123,5 +125,35 @@ describe('List Lambdas', () => {
     expect(callbackCalls[0]).toBe(null)
     expect(callbackCalls[1].functions).toHaveLength(20)
     expect(callbackCalls[1].lambdasLimitReached).toBe(30)
+  })
+
+  it('should list second page', async () => {
+    const functions = []
+    for (let i = 0; i < 30; i += 1) {
+      const rand = Math.floor(Math.random() * 3000)
+      functions.push({
+        FunctionName: `service1-env-function-${rand}`,
+        MemorySize: rand,
+      })
+    }
+
+    mockLambdaListFunctions.mockImplementation(() => ({
+      promise: () => ({
+        Functions: functions,
+      }),
+    }))
+
+    const callback = jest.fn()
+
+    await handler({ page: 2 }, {}, callback)
+
+    expect(mockLambdaListFunctions).toHaveBeenCalledTimes(1)
+
+    const callbackCalls = callback.mock.calls[0]
+    expect(callbackCalls[0]).toBe(null)
+    expect(callbackCalls[1].functions).toHaveLength(10)
+    expect(callbackCalls[1].lambdasLimitReached).toBe(30)
+    expect(callbackCalls[1].page).toBe(2)
+    expect(callbackCalls[1].totalPages).toBe(2)
   })
 })
