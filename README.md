@@ -55,13 +55,14 @@ By default
 
 ## Trigger the Step Function
 
-You can trigger it manually by sending an empty json. It'll then fetch all your lambdas but it'll keep only the first 20 of them (because there can be only 20 CloudWatchLogs query in parallel).
+You can trigger it manually by sending an empty json. It'll then fetch all your lambdas but it'll keep only the first 20 of them (because there can be only 20 CloudWatchLogs query in parallel). You can use pagination to fetch the rest of functions.
 
 You can also provide some options:
 
 - `prefix`: to keep only lambdas starting with that value (empty by default)
 - `channel`: the Slack channel ID or name to post the report (default to `#general`)
 - `days`: number of days to fetch log (default to `7`)
+- `page`: page to retrieve (based on 20 functions per page) (default to `1`)
 
 For example:
 
@@ -69,7 +70,8 @@ For example:
 {
   "prefix": "prod-",
   "channel": "C03PE644XH8",
-  "days": "2"
+  "days": 2,
+  "page": 2
 }
 ```
 

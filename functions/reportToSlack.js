@@ -46,6 +46,13 @@ export async function handler(event, context, callback) {
 
   const blocks = [
     {
+      type: 'header',
+      text: {
+        type: 'plain_text',
+        text: 'New report available',
+      },
+    },
+    {
       type: 'section',
       text: {
         type: 'mrkdwn',
@@ -74,13 +81,23 @@ export async function handler(event, context, callback) {
   })
 
   if (event?.lambdasLimitReached !== false) {
-    blocks.push({
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `We found *${event?.lambdasLimitReached}* functions, but we can only handle the first 20 of them.`,
-      },
-    })
+    if (event?.page > 1 && event?.totalPages) {
+      blocks.push({
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `You are viewing page ${event.page} on ${event.totalPages} (on a total of ${event?.lambdasLimitReached} functions)`,
+        },
+      })
+    } else {
+      blocks.push({
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `We found *${event?.lambdasLimitReached}* functions, but we can only handle the first 20 of them.`,
+        },
+      })
+    }
   }
 
   if (noData.length > 0) {
