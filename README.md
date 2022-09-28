@@ -13,6 +13,10 @@ Analyse logs from Lambdas to determine the provisioned memory usage (defined, ma
 2. For each lambda, we run a custom CloudWatchLogs query to determine: provisoned memory, max used memory and over provisioned memory
 3. Once all queries are complete, we send the report to your Slack
 
+Here is the Step Functions definition:
+
+![Step Functions definition](https://user-images.githubusercontent.com/62333/192753793-5c6d0a03-4033-4f5a-b091-16dcd1ed3217.png)
+
 ## Analyse the report
 
 Once you got the report, you can take action from it based on the _over_ column:
