@@ -28,7 +28,7 @@
     "jest": "^29.3.1",
     "prettier": "^2.8.3",
     "serverless-iam-roles-per-function": "^3.2.0",
-    "serverless-step-functions": "^3.11.1",
+    "serverless-step-functions": "^3.12.1",
     "serverless-webpack": "^5.11.0",
     "webpack": "^5.75.0",
     "webpack-node-externals": "^3.0.0"
