@@ -34,7 +34,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.20.7",
+    "@babel/runtime": "^7.20.13",
     "@slack/webhook": "^6.1.0",
     "aws-sdk": "^2.1206.0",
     "slack-table": "^0.1.2",
