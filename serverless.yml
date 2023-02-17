@@ -1,4 +1,4 @@
-frameworkVersion: ">=3.17.0"
+frameworkVersion: ">=3.25.0"
 
 service: serverless-provisioned-memory-report
 useDotenv: true
@@ -10,7 +10,7 @@ plugins:
 
 provider:
     name: aws
-    runtime: nodejs16.x
+    runtime: nodejs18.x
     profile: default
     region: ${opt:region, 'eu-west-1'}
     logRetentionInDays: 30
@@ -21,9 +21,8 @@ provider:
 
 custom:
     webpack:
-        includeModules:
-            forceExclude:
-                - aws-sdk
+        includeModules: true
+        excludeRegex: 'node_modules/@aws-sdk'
         packager: yarn
         packagerOptions:
             ignoreScripts: true
