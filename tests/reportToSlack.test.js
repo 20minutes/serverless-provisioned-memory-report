@@ -1,6 +1,8 @@
 import { IncomingWebhook } from '@slack/webhook'
 import { handler } from '../functions/reportToSlack'
 
+process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
+
 jest.mock('@slack/webhook', () => {
   const mSlack = {
     send: jest.fn(),

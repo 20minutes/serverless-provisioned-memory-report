@@ -94,7 +94,7 @@ export async function handler(event, context, callback) {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `We found *${event?.lambdasLimitReached}* functions, but we can only handle the first 20 of them.`,
+          text: `We found *${event?.lambdasLimitReached}* functions, but we can only handle the first ${process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES} of them.`,
         },
       })
     }

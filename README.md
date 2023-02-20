@@ -42,8 +42,8 @@ Here are the actions you might take:
 
 ## Prerequisites
 
-- Node.js 16
-- Serverless CLI >=3.17.0
+- Node.js 18
+- Serverless CLI >=3.25.0
 - An AWS account
 - Defined [provider credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 - An [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) from Slack
@@ -61,14 +61,14 @@ By default
 
 ## Trigger the Step Function
 
-You can trigger it manually by sending an empty json. It'll then fetch all your lambdas but it'll keep only the first 20 of them (because there can be only 20 CloudWatchLogs query in parallel). You can use pagination to fetch the rest of functions.
+You can trigger it manually by sending an empty json. It'll then fetch all your lambdas but it'll keep only the first 30 of them (because there can be only 30 CloudWatchLogs query in parallel). You can use pagination to fetch the rest of functions.
 
 You can also provide some options:
 
 - `prefix`: to keep only lambdas starting with that value (empty by default)
 - `channel`: the Slack channel ID or name to post the report (default to `#general`)
 - `days`: number of days to fetch log (default to `7`)
-- `page`: page to retrieve (based on 20 functions per page) (default to `1`)
+- `page`: page to retrieve (based on 30 functions per page) (default to `1`)
 
 For example:
 

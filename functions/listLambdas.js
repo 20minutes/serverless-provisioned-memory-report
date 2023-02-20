@@ -1,6 +1,8 @@
 import { Lambda } from '@aws-sdk/client-lambda'
 
 export async function handler(event, context, callback) {
+  // which is also the limit of queries to run in parallel on CloudWatchLogs
+  const numberPerPage = process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES
   const lambda = new Lambda()
   let result
   const functions = []
@@ -48,7 +50,7 @@ export async function handler(event, context, callback) {
   }
 
   const nbLambdas = filteredFunctions.length
-  const totalPages = Math.ceil(nbLambdas / 20)
+  const totalPages = Math.ceil(nbLambdas / numberPerPage)
 
   if (page > totalPages) {
     console.error(`Given page ${page} is too hight. Total pages: ${totalPages}`)
@@ -63,16 +65,21 @@ export async function handler(event, context, callback) {
       ...options,
       totalPages,
       lambdasLimitReached: nbLambdas,
-      functions: filteredFunctions.slice(page * 20 - 20, page * 20),
+      functions: filteredFunctions.slice(
+        page * numberPerPage - numberPerPage,
+        page * numberPerPage
+      ),
     })
   }
-  if (nbLambdas > 20) {
-    console.log(`Found ${nbLambdas} functions, but only the first 20 will be handled.`)
+  if (nbLambdas > numberPerPage) {
+    console.log(
+      `Found ${nbLambdas} functions, but only the first ${numberPerPage} will be handled.`
+    )
 
     return callback(null, {
       ...options,
       lambdasLimitReached: nbLambdas,
-      functions: filteredFunctions.slice(0, 20),
+      functions: filteredFunctions.slice(0, numberPerPage),
     })
   }
 
