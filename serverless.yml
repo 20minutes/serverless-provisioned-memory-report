@@ -18,6 +18,8 @@ provider:
     versionFunctions: false
     deploymentMethod: direct
     architecture: arm64
+    environment:
+        CLOUDWATCH_LOGS_PARALLEL_QUERIES: 30
 
 custom:
     webpack:

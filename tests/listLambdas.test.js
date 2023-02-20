@@ -3,6 +3,7 @@ import { Lambda } from '@aws-sdk/client-lambda'
 import { handler } from '../functions/listLambdas'
 
 const awsMock = mockClient(Lambda)
+process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
 
 describe('List Lambdas', () => {
   it('should list all lambdas', async () => {
