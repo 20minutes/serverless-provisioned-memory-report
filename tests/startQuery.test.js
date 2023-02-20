@@ -1,28 +1,14 @@
+import { mockClient } from 'aws-sdk-client-mock'
+import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 import { handler } from '../functions/startQuery'
 
-const mockCloudWatchLogsStartQuery = jest.fn()
-
-jest.mock('aws-sdk', () => ({
-  CloudWatchLogs: jest.fn(() => ({
-    startQuery: mockCloudWatchLogsStartQuery,
-  })),
-}))
-
-beforeEach(() => {
-  mockCloudWatchLogsStartQuery.mockReset()
-})
-
-afterEach(() => {
-  jest.restoreAllMocks()
-})
+const awsMock = mockClient(CloudWatchLogs)
 
 describe('Start Query', () => {
   it('should start the query', async () => {
-    mockCloudWatchLogsStartQuery.mockImplementation(() => ({
-      promise: () => ({
-        queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-      }),
-    }))
+    awsMock.resolves({
+      queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
+    })
 
     const callback = jest.fn()
     const event = {
@@ -31,8 +17,6 @@ describe('Start Query', () => {
     }
 
     await handler(event, {}, callback)
-
-    expect(mockCloudWatchLogsStartQuery).toHaveBeenCalledTimes(1)
 
     const callbackCalls = callback.mock.calls[0]
     expect(callbackCalls[0]).toBe(null)

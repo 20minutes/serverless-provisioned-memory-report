@@ -1,28 +1,14 @@
+import { mockClient } from 'aws-sdk-client-mock'
+import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 import { handler } from '../functions/extractQueryResult'
 
-const mockCloudWatchLogsGetQueryResults = jest.fn()
-
-jest.mock('aws-sdk', () => ({
-  CloudWatchLogs: jest.fn(() => ({
-    getQueryResults: mockCloudWatchLogsGetQueryResults,
-  })),
-}))
-
-beforeEach(() => {
-  mockCloudWatchLogsGetQueryResults.mockReset()
-})
-
-afterEach(() => {
-  jest.restoreAllMocks()
-})
+const awsMock = mockClient(CloudWatchLogs)
 
 describe('Extract Query Result', () => {
   it('should handle a running query', async () => {
-    mockCloudWatchLogsGetQueryResults.mockImplementation(() => ({
-      promise: () => ({
-        status: 'Running',
-      }),
-    }))
+    awsMock.resolves({
+      status: 'Running',
+    })
 
     const callback = jest.fn()
     const event = {
@@ -32,8 +18,6 @@ describe('Extract Query Result', () => {
     }
 
     await handler(event, {}, callback)
-
-    expect(mockCloudWatchLogsGetQueryResults).toHaveBeenCalledTimes(1)
 
     const callbackCalls = callback.mock.calls[0]
     expect(callbackCalls[0]).toBe(null)
@@ -46,27 +30,25 @@ describe('Extract Query Result', () => {
   })
 
   it('should handle a completed query', async () => {
-    mockCloudWatchLogsGetQueryResults.mockImplementation(() => ({
-      promise: () => ({
-        status: 'Complete',
-        results: [
-          [
-            {
-              field: 'provisonedMemoryMB',
-              value: 286,
-            },
-            {
-              field: 'maxMemoryUsedMB',
-              value: 246,
-            },
-            {
-              field: 'overProvisionedMB',
-              value: 40,
-            },
-          ],
+    awsMock.resolves({
+      status: 'Complete',
+      results: [
+        [
+          {
+            field: 'provisonedMemoryMB',
+            value: 286,
+          },
+          {
+            field: 'maxMemoryUsedMB',
+            value: 246,
+          },
+          {
+            field: 'overProvisionedMB',
+            value: 40,
+          },
         ],
-      }),
-    }))
+      ],
+    })
 
     const callback = jest.fn()
     const event = {
@@ -76,8 +58,6 @@ describe('Extract Query Result', () => {
     }
 
     await handler(event, {}, callback)
-
-    expect(mockCloudWatchLogsGetQueryResults).toHaveBeenCalledTimes(1)
 
     const callbackCalls = callback.mock.calls[0]
     expect(callbackCalls[0]).toBe(null)

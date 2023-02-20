@@ -1,13 +1,11 @@
-import AWS from 'aws-sdk'
+import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 
 export async function handler(event, context, callback) {
-  const cloudwatchlogs = new AWS.CloudWatchLogs()
+  const cloudwatchlogs = new CloudWatchLogs()
 
-  const result = await cloudwatchlogs
-    .getQueryResults({
-      queryId: event.queryId,
-    })
-    .promise()
+  const result = await cloudwatchlogs.getQueryResults({
+    queryId: event.queryId,
+  })
 
   if (result.status === 'Running') {
     console.log(`Query "${event.queryId}" is still running...`)

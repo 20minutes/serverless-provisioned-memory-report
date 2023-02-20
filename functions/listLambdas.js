@@ -1,7 +1,7 @@
-import AWS from 'aws-sdk'
+import { Lambda } from '@aws-sdk/client-lambda'
 
 export async function handler(event, context, callback) {
-  const lambda = new AWS.Lambda()
+  const lambda = new Lambda()
   let result
   const functions = []
   const days = event?.days ?? 7
@@ -9,11 +9,9 @@ export async function handler(event, context, callback) {
 
   do {
     // eslint-disable-next-line no-await-in-loop
-    result = await lambda
-      .listFunctions({
-        Marker: result?.NextMarker ?? null,
-      })
-      .promise()
+    result = await lambda.listFunctions({
+      Marker: result?.NextMarker ?? null,
+    })
 
     result.Functions.forEach((item) => {
       functions.push({
