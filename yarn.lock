@@ -6305,10 +6305,10 @@ serverless-iam-roles-per-function@^3.2.0:
   dependencies:
     lodash "^4.17.20"
 
-serverless-step-functions@^3.12.1:
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.12.1.tgz#1325cb60c365adf7a1d976b504bd74067a19627e"
-  integrity sha512-8PObLriopBZqcEJgFXGKOb3NTXft9zWdYPoQp7tjacPg7sC0EqAgEm4vQ3ZWWg4eidmu1wKv+2QZrzKpUHC0UQ==
+serverless-step-functions@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.13.0.tgz#6d10fa099f69da14d7f8f0f2fb22adc0f7d11412"
+  integrity sha512-lJOedjdKShJW3bemwhvTUAMqKu/uWJYFNKEtBxgOsw/BuWxCFvL6esKY+WA3QR7jeHtBknI5U/SStI4j3a+x+w==
   dependencies:
     "@hapi/joi" "^15.0.2"
     "@serverless/utils" "^6.7.0"
