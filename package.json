@@ -14,7 +14,7 @@
     "@20minutes/eslint-config": "^1.2.4",
     "@babel/core": "^7.21.3",
     "@babel/eslint-parser": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-env": "^7.21.4",
     "aws-sdk-client-mock": "^2.1.1",
     "babel-loader": "^9.1.2",
     "babel-plugin-source-map-support": "^2.2.0",
