@@ -78,14 +78,14 @@
     "@aws-sdk/types" "3.310.0"
     tslib "^2.5.0"
 
-"@aws-sdk/client-cloudwatch-logs@^3.310.0":
-  version "3.310.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.310.0.tgz#349df2f2e0c13814dadcf3086e7baf5bfd61e096"
-  integrity sha512-IgJ+Gp1F2p/1eanXKE16S6+FyyCKS3LqymuqkkuTfPMI6t1T7i2lSTcZSs0rHBiVPx920PuI4v16JPDkAgUNPQ==
+"@aws-sdk/client-cloudwatch-logs@^3.312.0":
+  version "3.312.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.312.0.tgz#2a1cdc57b11765032d35971fafe8de5725f03594"
+  integrity sha512-AM5Ne5/OSS1Ku1ZVJDn9wRTqCev1J3EkwhOw70aYgt6HZyj/HpuWBn33z6+Fv8ajFIQBqHcUBQdZTsFn85cgKw==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
-    "@aws-sdk/client-sts" "3.310.0"
+    "@aws-sdk/client-sts" "3.312.0"
     "@aws-sdk/config-resolver" "3.310.0"
     "@aws-sdk/credential-provider-node" "3.310.0"
     "@aws-sdk/fetch-http-handler" "3.310.0"
@@ -238,48 +238,6 @@
     "@aws-sdk/util-user-agent-browser" "3.310.0"
     "@aws-sdk/util-user-agent-node" "3.310.0"
     "@aws-sdk/util-utf8" "3.310.0"
-    tslib "^2.5.0"
-
-"@aws-sdk/client-sts@3.310.0":
-  version "3.310.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-sts/-/client-sts-3.310.0.tgz#f1f13751c527d3f98759f6bbccee716b7d8a01d5"
-  integrity sha512-V1LyJwmWuo0OaPIWrE/BDNr14FJdnBTVCmCnEnq1DKVQI/ihVr8HuDsSM4K8jaywWNJaQFNvAKOVuCY2BdmIyA==
-  dependencies:
-    "@aws-crypto/sha256-browser" "3.0.0"
-    "@aws-crypto/sha256-js" "3.0.0"
-    "@aws-sdk/config-resolver" "3.310.0"
-    "@aws-sdk/credential-provider-node" "3.310.0"
-    "@aws-sdk/fetch-http-handler" "3.310.0"
-    "@aws-sdk/hash-node" "3.310.0"
-    "@aws-sdk/invalid-dependency" "3.310.0"
-    "@aws-sdk/middleware-content-length" "3.310.0"
-    "@aws-sdk/middleware-endpoint" "3.310.0"
-    "@aws-sdk/middleware-host-header" "3.310.0"
-    "@aws-sdk/middleware-logger" "3.310.0"
-    "@aws-sdk/middleware-recursion-detection" "3.310.0"
-    "@aws-sdk/middleware-retry" "3.310.0"
-    "@aws-sdk/middleware-sdk-sts" "3.310.0"
-    "@aws-sdk/middleware-serde" "3.310.0"
-    "@aws-sdk/middleware-signing" "3.310.0"
-    "@aws-sdk/middleware-stack" "3.310.0"
-    "@aws-sdk/middleware-user-agent" "3.310.0"
-    "@aws-sdk/node-config-provider" "3.310.0"
-    "@aws-sdk/node-http-handler" "3.310.0"
-    "@aws-sdk/protocol-http" "3.310.0"
-    "@aws-sdk/smithy-client" "3.310.0"
-    "@aws-sdk/types" "3.310.0"
-    "@aws-sdk/url-parser" "3.310.0"
-    "@aws-sdk/util-base64" "3.310.0"
-    "@aws-sdk/util-body-length-browser" "3.310.0"
-    "@aws-sdk/util-body-length-node" "3.310.0"
-    "@aws-sdk/util-defaults-mode-browser" "3.310.0"
-    "@aws-sdk/util-defaults-mode-node" "3.310.0"
-    "@aws-sdk/util-endpoints" "3.310.0"
-    "@aws-sdk/util-retry" "3.310.0"
-    "@aws-sdk/util-user-agent-browser" "3.310.0"
-    "@aws-sdk/util-user-agent-node" "3.310.0"
-    "@aws-sdk/util-utf8" "3.310.0"
-    fast-xml-parser "4.1.2"
     tslib "^2.5.0"
 
 "@aws-sdk/client-sts@3.312.0":
