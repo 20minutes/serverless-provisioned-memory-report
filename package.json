@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.338.0",
-    "@aws-sdk/client-lambda": "^3.338.0",
+    "@aws-sdk/client-lambda": "^3.341.0",
     "@babel/runtime": "^7.21.5",
     "@slack/webhook": "^6.1.0",
     "slack-table": "^0.1.2",
