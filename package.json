@@ -35,7 +35,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.352.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.353.0",
     "@aws-sdk/client-lambda": "^3.353.0",
     "@babel/runtime": "^7.22.5",
     "@slack/webhook": "^6.1.0",
