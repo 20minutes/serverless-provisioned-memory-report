@@ -9,7 +9,10 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
   - j0k3r
-  ignore:
-  - dependency-name: aws-sdk
-    versions:
-    - "> 2.1206.0"
+  groups:
+    aws-sdk-dependencies:
+      patterns:
+        - "*aws-sdk*"
+    babel-dependencies:
+      patterns:
+        - "*babel*"
