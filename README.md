@@ -42,8 +42,8 @@ Here are the actions you might take:
 
 ## Prerequisites
 
-- Node.js 18
-- Serverless CLI >=3.25.0
+- Node.js 20
+- Serverless CLI >=3.37.0
 - An AWS account
 - Defined [provider credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 - An [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) from Slack
