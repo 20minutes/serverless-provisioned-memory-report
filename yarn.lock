@@ -75,10 +75,10 @@
     "@aws-sdk/util-utf8-browser" "^3.0.0"
     tslib "^1.11.1"
 
-"@aws-sdk/client-cloudwatch-logs@^3.470.0":
-  version "3.470.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.470.0.tgz#9b711429014fb21ddcc867167306367936e17d13"
-  integrity sha512-aA1TTy6gtJQr3LKnvo3oINVKhkvJMWi83TXHeLUi3v6d0+dtR249StejZegJESh5r6HUzoC5AvYz7UcXFSZHvw==
+"@aws-sdk/client-cloudwatch-logs@^3.472.0":
+  version "3.472.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.472.0.tgz#e90af341d3b3931edd7d5024d2e300a0803b61d8"
+  integrity sha512-UMIhV650VMmxlVlXQzfH3U1Fp82DRwiZfBmf84zHkt40L1L/kA/IuN5bgI7ch9Ww9Rjb0xDe3d2Mdwq4wnGuRg==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -96,6 +96,9 @@
     "@aws-sdk/util-user-agent-browser" "3.468.0"
     "@aws-sdk/util-user-agent-node" "3.470.0"
     "@smithy/config-resolver" "^2.0.21"
+    "@smithy/eventstream-serde-browser" "^2.0.15"
+    "@smithy/eventstream-serde-config-resolver" "^2.0.15"
+    "@smithy/eventstream-serde-node" "^2.0.15"
     "@smithy/fetch-http-handler" "^2.3.1"
     "@smithy/hash-node" "^2.0.17"
     "@smithy/invalid-dependency" "^2.0.15"
