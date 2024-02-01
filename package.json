@@ -13,7 +13,7 @@
   "devDependencies": {
     "@20minutes/eslint-config": "^1.2.6",
     "@babel/core": "^7.23.9",
-    "@babel/eslint-parser": "^7.23.9",
+    "@babel/eslint-parser": "^7.23.10",
     "@babel/preset-env": "^7.23.9",
     "aws-sdk-client-mock": "^3.0.1",
     "babel-loader": "^9.1.3",
