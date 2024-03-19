@@ -75,10 +75,10 @@
     "@aws-sdk/util-utf8-browser" "^3.0.0"
     tslib "^1.11.1"
 
-"@aws-sdk/client-cloudwatch-logs@^3.535.0":
-  version "3.535.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.535.0.tgz#d127e11bf176f2c1c507da247c05b8fa756b1dca"
-  integrity sha512-2kAgOBe0zIrnZ/DNB3kqWHcYs2Rmi8gsabQftZdjXR4LubPswIIjMH5afSaTHC1m7XOzxmH+KDc6fCYohicjwA==
+"@aws-sdk/client-cloudwatch-logs@^3.536.0":
+  version "3.536.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.536.0.tgz#bd235f50cad465f47fde219f6aeb33e3023c9472"
+  integrity sha512-NUACZtuvtM/tMTi74v1lnX4jTTFp5gVkIcBhmzw5skC55bT70e2hcF2N44cG6L4/ual1+VmbFL81RDRbik/G9w==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
@@ -125,10 +125,10 @@
     tslib "^2.6.2"
     uuid "^9.0.1"
 
-"@aws-sdk/client-lambda@^3.535.0":
-  version "3.535.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.535.0.tgz#769515d7950ce545b5667684067b1f039074c5f1"
-  integrity sha512-aR8/yblb3wEsPZ/U4XAx5k4Ek8+cEBzJIj6cFSa9OqBRHIWdu2f8bbQR7yDRYzq5Ta/nqFg2023gksee3KCSdw==
+"@aws-sdk/client-lambda@^3.536.0":
+  version "3.536.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.536.0.tgz#bc7e7900b97c2baa95496f4df26cdb8ea015f3fc"
+  integrity sha512-gzrJO9ZuRVnnTHPhSL+sN9MA0t4Cu3+iIEehF3F2ApLUa7SiCr6cNPqLnEReC8Q5FTWX0imxVQG5jHvuKY20BQ==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
