@@ -75,10 +75,10 @@
     "@aws-sdk/util-utf8-browser" "^3.0.0"
     tslib "^1.11.1"
 
-"@aws-sdk/client-cloudwatch-logs@^3.536.0":
-  version "3.536.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.536.0.tgz#bd235f50cad465f47fde219f6aeb33e3023c9472"
-  integrity sha512-NUACZtuvtM/tMTi74v1lnX4jTTFp5gVkIcBhmzw5skC55bT70e2hcF2N44cG6L4/ual1+VmbFL81RDRbik/G9w==
+"@aws-sdk/client-cloudwatch-logs@^3.537.0":
+  version "3.537.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.537.0.tgz#f2ab36a797ccd24cf04d1ed904a5462f58367dff"
+  integrity sha512-Nv7VbAjLIhCY1Q/GFFPa3kYqXT1r+JDdcvaQkNXTr5dBVU6uHuA+LhSsyjcY+K5NXpQg/ec/CBJUYeIrtMVcNQ==
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"
