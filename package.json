@@ -30,7 +30,7 @@
     "prettier": "^3.3.2",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.21.0",
-    "serverless-webpack": "^5.14.0",
+    "serverless-webpack": "^5.14.1",
     "webpack": "^5.92.0",
     "webpack-node-externals": "^3.0.0"
   },
