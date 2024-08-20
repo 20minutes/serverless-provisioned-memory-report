@@ -118,10 +118,10 @@
     tslib "^2.6.2"
     uuid "^9.0.1"
 
-"@aws-sdk/client-lambda@^3.632.0":
-  version "3.632.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.632.0.tgz#6e31acb2f4484d61ade5928eba329a1e45f27354"
-  integrity sha512-vF4KRuHGr6EfW+dssm56S6b+jAa8dKqdWduHNms1TQFah0iOkjc9Dpo4p4j6bobZcuricGko/OZy9ynb1Dwldg==
+"@aws-sdk/client-lambda@^3.634.0":
+  version "3.634.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.634.0.tgz#c92d9922bec43c0a8894b3dbfa661666edd01fa0"
+  integrity sha512-usQhHRkJ9etWUIDusS2DK/UP1PlEP1XoeXJpnMDTTQGT2XPMtWlLaa5OYOrVqUiZbVE3FJNCS7K2ReIex/JciQ==
   dependencies:
     "@aws-crypto/sha256-browser" "5.2.0"
     "@aws-crypto/sha256-js" "5.2.0"
