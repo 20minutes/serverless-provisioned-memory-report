@@ -7,8 +7,6 @@ updates:
     time: "02:00"
     timezone: Europe/Paris
   open-pull-requests-limit: 10
-  reviewers:
-  - j0k3r
   groups:
     aws-sdk-dependencies:
       patterns:
