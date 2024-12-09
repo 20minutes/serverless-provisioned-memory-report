@@ -1999,14 +1999,14 @@
   resolved "https://registry.yarnpkg.com/@slack/types/-/types-2.10.0.tgz#4766c7fb073e55b9b760af46e6f54add5c7f6a71"
   integrity sha512-JXY9l49rf7dDgvfMZi0maFyugzGkvq0s5u+kDlD68WaRUhjZNLBDKZcsrycMsVVDFfyOK0R1UKkYGmy9Ph069Q==
 
-"@slack/webhook@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-7.0.3.tgz#509cfd03eb698ced6c4e03400da8341dc3f5eedb"
-  integrity sha512-qRPMq3In5znBpRLw4IQvYy8M3+CRd8/FKfZjA0BoNx/Q1qm4+kom8BTaOz+HMoRpnywMbr+4B/Tc5JR3nUJ+ew==
+"@slack/webhook@^7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-7.0.4.tgz#94ec3c5b87458d2fccaeee04abeb8754b4f1857a"
+  integrity sha512-JDJte2dbJCcq1/GCMBYJH6fj+YS4n5GuPjT4tF3O1NPN6pFPCR9yA/apRh9sdfhdFG7hadiRgmiQqC4GLgNkZg==
   dependencies:
     "@slack/types" "^2.9.0"
     "@types/node" ">=18.0.0"
-    axios "^1.7.4"
+    axios "^1.7.8"
 
 "@smithy/abort-controller@^3.1.8":
   version "3.1.8"
@@ -3080,10 +3080,10 @@ axe-core@^4.10.0:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.10.0.tgz#d9e56ab0147278272739a000880196cdfe113b59"
   integrity sha512-Mr2ZakwQ7XUAjp7pAwQWRhhK8mQQ6JAaNWSjmjxil0R8BPioMtQsTLOolGYkji1rcL++3dCqZA3zWqpT+9Ew6g==
 
-axios@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.4.tgz#4c8ded1b43683c8dd362973c393f3ede24052aa2"
-  integrity sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==
+axios@^1.7.8:
+  version "1.7.9"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.9.tgz#d7d071380c132a24accda1b2cfc1535b79ec650a"
+  integrity sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
