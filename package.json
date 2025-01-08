@@ -10,6 +10,11 @@
     "test-coverage": "jest --silent",
     "lint": "eslint functions/ tests/ webpack.config.js"
   },
+  "engines": {
+    "npm": "please-use-yarn-instead",
+    "yarn": ">= 1.22.0",
+    "node": ">= 22"
+  },
   "devDependencies": {
     "@20minutes/eslint-config": "^1.2.6",
     "@babel/core": "^7.26.0",
@@ -55,5 +60,8 @@
       "html",
       "text-summary"
     ]
+  },
+  "resolutions": {
+    "uri-js": "npm:uri-js-replace"
   }
 }
