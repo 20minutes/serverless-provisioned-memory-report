@@ -1,6 +1,5 @@
 # Serverless Provisioned Memory Report
 
-[![serverless](http://public.serverless.com/badges/v3.svg)](https://serverless.com/)
 [![Build Status](https://github.com/20minutes/serverless-provisioned-memory-report/actions/workflows/tests.yml/badge.svg)](https://github.com/20minutes/serverless-provisioned-memory-report/actions/workflows/tests.yml)
 
 Analyse logs from Lambdas to determine the provisioned memory usage (defined, max & over) and post them to Slack. You'll then be able to adjust the memory size of your lambdas and _hopefully_ save money 💸
@@ -42,8 +41,8 @@ Here are the actions you might take:
 
 ## Prerequisites
 
-- Node.js 20
-- Serverless CLI >=3.37.0
+- Node.js 22
+- OSS Serverless (`npm install -g osls`)
 - An AWS account
 - Defined [provider credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 - An [Incoming Webhook URL](https://api.slack.com/messaging/webhooks) from Slack
