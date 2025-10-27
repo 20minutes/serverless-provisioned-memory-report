@@ -40,8 +40,8 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.916.0",
-    "@aws-sdk/client-lambda": "^3.916.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.917.0",
+    "@aws-sdk/client-lambda": "^3.917.0",
     "@babel/runtime": "^7.28.4",
     "@slack/webhook": "^7.0.6",
     "slack-table": "^0.1.2",
