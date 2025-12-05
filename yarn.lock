@@ -102,10 +102,10 @@
     "@smithy/util-utf8" "^4.2.0"
     tslib "^2.6.2"
 
-"@aws-sdk/client-lambda@^3.943.0":
-  version "3.943.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.943.0.tgz#405a6cb24cf62186f86ab8458f93fe57db5dfb1f"
-  integrity sha512-AjhebQ7yBZ70NvEH7PY37lha6i9cK8BCK56YNN77zPETw3cjkVJFC+wHQz+oSLL5p7X35Ur4JYWKmVuqlgLSNw==
+"@aws-sdk/client-lambda@^3.945.0":
+  version "3.945.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.945.0.tgz#4d5f72cefb6c9022eabadc87091d60315ba5a824"
+  integrity sha512-HTQbeazCUPoojJ6skSecos6Z+s9hq7VLlQP+M5jKIKBVx9VQ8TVJiaEjllAT88+g04h763i4m2xSiIYPTQTbzA==
   dependencies:
     "@aws-crypto/sha256-browser" "5.2.0"
     "@aws-crypto/sha256-js" "5.2.0"
