@@ -36,7 +36,7 @@
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.23.4",
     "serverless-webpack": "^5.15.3",
-    "webpack": "^5.104.0",
+    "webpack": "^5.104.1",
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
