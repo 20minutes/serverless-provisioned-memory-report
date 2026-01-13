@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "@20minutes/eslint-config": "^1.2.7",
-    "@babel/core": "^7.28.5",
-    "@babel/eslint-parser": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
+    "@babel/core": "^7.28.6",
+    "@babel/eslint-parser": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
     "aws-sdk-client-mock": "^4.1.0",
     "babel-loader": "^10.0.0",
     "babel-plugin-source-map-support": "^2.2.0",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.967.0",
     "@aws-sdk/client-lambda": "^3.967.0",
-    "@babel/runtime": "^7.28.4",
+    "@babel/runtime": "^7.28.6",
     "@slack/webhook": "^7.0.6",
     "slack-table": "^0.1.2",
     "source-map-support": "^0.5.21"
