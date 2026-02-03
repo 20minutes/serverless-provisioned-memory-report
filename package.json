@@ -45,7 +45,8 @@
     "@babel/runtime": "^7.28.6",
     "@slack/webhook": "^7.0.6",
     "slack-table": "^0.1.2",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "uri-js": "npm:uri-js-replace"
   },
   "jest": {
     "clearMocks": true,
