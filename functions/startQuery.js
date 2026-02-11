@@ -1,6 +1,6 @@
 import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 
-export async function handler(event, context, callback) {
+export async function handler(event) {
   const cloudwatchlogs = new CloudWatchLogs()
   const timestamp = new Date()
   const logGroupName = `/aws/lambda/${event.name}`
@@ -19,8 +19,8 @@ export async function handler(event, context, callback) {
 
   console.log(`Query started for "${event.name}", with id: ${result.queryId}`)
 
-  return callback(null, {
+  return {
     ...event,
     queryId: result.queryId,
-  })
+  }
 }

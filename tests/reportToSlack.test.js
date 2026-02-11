@@ -26,7 +26,6 @@ describe('Report To Slack', () => {
   })
 
   it('should handle basic report', async () => {
-    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: false,
@@ -45,11 +44,8 @@ describe('Report To Slack', () => {
       ],
     }
 
-    await handler(event, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1]).toBe('Message sent')
+    const result = await handler(event)
+    expect(result).toBe('Message sent')
 
     const mockCalls = webhook.send.mock.calls[0][0]
     expect(mockCalls.link_names).toBe(false)
@@ -66,7 +62,6 @@ describe('Report To Slack', () => {
   })
 
   it('should handle when function as no data report', async () => {
-    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: false,
@@ -93,11 +88,8 @@ describe('Report To Slack', () => {
       ],
     }
 
-    await handler(event, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1]).toBe('Message sent')
+    const result = await handler(event)
+    expect(result).toBe('Message sent')
 
     const mockCalls = webhook.send.mock.calls[0][0]
     expect(mockCalls.link_names).toBe(false)
@@ -127,7 +119,6 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report with prefix', async () => {
-    const callback = vi.fn()
     const event = {
       prefix: 'service1-env-',
       lambdasLimitReached: false,
@@ -144,11 +135,8 @@ describe('Report To Slack', () => {
       ],
     }
 
-    await handler(event, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1]).toBe('Message sent')
+    const result = await handler(event)
+    expect(result).toBe('Message sent')
 
     const mockCalls = webhook.send.mock.calls[0][0]
     expect(mockCalls.link_names).toBe(false)
@@ -168,7 +156,6 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report when too much lambdas were found', async () => {
-    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: 2,
@@ -185,11 +172,8 @@ describe('Report To Slack', () => {
       ],
     }
 
-    await handler(event, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1]).toBe('Message sent')
+    const result = await handler(event)
+    expect(result).toBe('Message sent')
 
     const mockCalls = webhook.send.mock.calls[0][0]
     expect(mockCalls.link_names).toBe(false)
@@ -204,7 +188,6 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report when pagination is enabled', async () => {
-    const callback = vi.fn()
     const event = {
       prefix: undefined,
       page: 2,
@@ -223,11 +206,8 @@ describe('Report To Slack', () => {
       ],
     }
 
-    await handler(event, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1]).toBe('Message sent')
+    const result = await handler(event)
+    expect(result).toBe('Message sent')
 
     const mockCalls = webhook.send.mock.calls[0][0]
     expect(mockCalls.link_names).toBe(false)

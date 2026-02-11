@@ -10,7 +10,7 @@ plugins:
 
 provider:
     name: aws
-    runtime: nodejs22.x
+    runtime: nodejs24.x
     profile: default
     region: ${opt:region, 'eu-west-1'}
     logRetentionInDays: 30
@@ -38,7 +38,7 @@ custom:
         format: esm
         outputFileExtension: .mjs
         platform: node
-        target: node22
+        target: node24
         exclude:
             - aws-sdk
             - '@aws-sdk/*'
