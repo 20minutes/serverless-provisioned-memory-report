@@ -4,7 +4,7 @@ service: serverless-provisioned-memory-report
 useDotenv: true
 
 plugins:
-    - serverless-webpack
+    - serverless-esbuild
     - serverless-step-functions
     - serverless-iam-roles-per-function
 
@@ -21,13 +21,34 @@ provider:
     environment:
         CLOUDWATCH_LOGS_PARALLEL_QUERIES: 30
 
+package:
+    individually: true
+    patterns:
+        - '!node_modules/**/*.md'
+        - '!node_modules/**/*.JPG'
+        - '!node_modules/**/*.jpg'
+        - '!node_modules/**/*.jpeg'
+        - '!yarn.lock'
+
 custom:
-    webpack:
-        includeModules: true
-        excludeRegex: 'node_modules/@aws-sdk'
+    esbuild:
+        bundle: true
+        sourcemap: true
+        minify: true
+        format: esm
+        outputFileExtension: .mjs
+        platform: node
+        target: node22
+        exclude:
+            - aws-sdk
+            - '@aws-sdk/*'
         packager: yarn
         packagerOptions:
             ignoreScripts: true
+        installExtraArgs:
+            - --ignore-scripts
+        banner:
+            js: "import { createRequire } from 'module';const require = createRequire(import.meta.url);"
     serverless-iam-roles-per-function:
         defaultInherit: true
 

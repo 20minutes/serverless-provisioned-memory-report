@@ -1,4 +1,4 @@
-import slackTable from 'slack-table'
+import slackTable from './lib/slackTable.js'
 import { IncomingWebhook } from '@slack/webhook'
 
 const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL || '')
@@ -105,7 +105,6 @@ export async function handler(event, context, callback) {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        // eslint-disable-next-line prettier/prettier
         text: `We did not found data for *${noData.length}* functions (\`${noData.join('`, `')}\`).`,
       },
     })

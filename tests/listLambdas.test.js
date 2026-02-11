@@ -1,6 +1,6 @@
 import { mockClient } from 'aws-sdk-client-mock'
 import { Lambda } from '@aws-sdk/client-lambda'
-import { handler } from '../functions/listLambdas'
+import { handler } from '../functions/listLambdas.js'
 
 const awsMock = mockClient(Lambda)
 process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
@@ -24,7 +24,7 @@ describe('List Lambdas', () => {
       ],
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     await handler({ channel: 'C03PE644XH8' }, {}, callback)
 
@@ -63,7 +63,7 @@ describe('List Lambdas', () => {
       ],
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     await handler({ prefix: 'service2', days: 70 }, {}, callback)
 
@@ -94,7 +94,7 @@ describe('List Lambdas', () => {
       Functions: functions,
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     await handler({}, {}, callback)
 
@@ -118,7 +118,7 @@ describe('List Lambdas', () => {
       Functions: functions,
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     await handler({ page: 2 }, {}, callback)
 

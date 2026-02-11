@@ -2,65 +2,43 @@
   "name": "serverless-provisioned-memory-report",
   "version": "1.0.0",
   "description": "Report memory usage for all Lambdas",
+  "type": "module",
   "repository": "https://github.com/20minutes/serverless-provisioned-memory-report",
   "author": "20 Minutes <web-tech@20minutes.fr>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage false --verbose --silent",
-    "test-coverage": "jest --silent",
-    "lint": "eslint functions/ tests/ webpack.config.js"
+    "test": "vitest run --silent",
+    "test:coverage": "vitest run --coverage --silent",
+    "lint": "eslint functions/ tests/ eslint.config.mjs vitest.config.mjs"
   },
   "engines": {
     "npm": "please-use-yarn-instead",
-    "yarn": ">= 1.22.0",
-    "node": ">= 22"
+    "yarn": ">= 1.22.22",
+    "node": ">= 22.21.1"
   },
   "devDependencies": {
-    "@20minutes/eslint-config": "^1.2.7",
-    "@babel/core": "^7.29.0",
-    "@babel/eslint-parser": "^7.28.6",
-    "@babel/preset-env": "^7.29.0",
+    "@20minutes/eslint-config": "^2",
+    "@vitest/coverage-v8": "^4.0.18",
     "aws-sdk-client-mock": "^4.1.0",
-    "babel-loader": "^10.0.0",
-    "babel-plugin-source-map-support": "^2.2.0",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb": "^19.0.4",
+    "esbuild": "^0.27.3",
+    "eslint": "^9",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
-    "jest": "^30.2.0",
+    "eslint-plugin-react-hooks": "^7",
     "prettier": "^3.8.1",
+    "serverless-esbuild": "^1.57.0",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.23.4",
-    "serverless-webpack": "^5.15.3",
-    "webpack": "^5.105.1",
-    "webpack-node-externals": "^3.0.0"
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.987.0",
     "@aws-sdk/client-lambda": "^3.987.0",
-    "@babel/runtime": "^7.28.6",
     "@slack/webhook": "^7.0.6",
-    "slack-table": "^0.1.2",
-    "source-map-support": "^0.5.21",
     "uri-js": "npm:uri-js-replace"
-  },
-  "jest": {
-    "clearMocks": true,
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "functions/**/*.js",
-      "!**/node_modules/**"
-    ],
-    "coverageDirectory": "./build",
-    "coverageReporters": [
-      "html",
-      "text-summary"
-    ]
   },
   "resolutions": {
     "uri-js": "npm:uri-js-replace"

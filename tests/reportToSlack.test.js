@@ -1,18 +1,22 @@
 import { IncomingWebhook } from '@slack/webhook'
-import { handler } from '../functions/reportToSlack'
+import { handler } from '../functions/reportToSlack.js'
 
 process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
 
-jest.mock('@slack/webhook', () => {
+vi.mock('@slack/webhook', () => {
   const mSlack = {
-    send: jest.fn(),
+    send: vi.fn(),
   }
 
-  return { IncomingWebhook: jest.fn(() => mSlack) }
+  return {
+    IncomingWebhook: vi.fn(function IncomingWebhookMock() {
+      return mSlack
+    }),
+  }
 })
 
 afterEach(() => {
-  jest.restoreAllMocks()
+  vi.clearAllMocks()
 })
 
 describe('Report To Slack', () => {
@@ -22,7 +26,7 @@ describe('Report To Slack', () => {
   })
 
   it('should handle basic report', async () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: false,
@@ -62,7 +66,7 @@ describe('Report To Slack', () => {
   })
 
   it('should handle when function as no data report', async () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: false,
@@ -123,7 +127,7 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report with prefix', async () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       prefix: 'service1-env-',
       lambdasLimitReached: false,
@@ -164,7 +168,7 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report when too much lambdas were found', async () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       prefix: undefined,
       lambdasLimitReached: 2,
@@ -200,7 +204,7 @@ describe('Report To Slack', () => {
   })
 
   it('should handle report when pagination is enabled', async () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       prefix: undefined,
       page: 2,

@@ -9,9 +9,6 @@ updates:
     aws-sdk-dependencies:
       patterns:
         - "*aws-sdk*"
-    babel-dependencies:
-      patterns:
-        - "*babel*"
 - package-ecosystem: github-actions
   directory: "/"
   schedule:
