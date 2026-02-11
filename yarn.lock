@@ -5505,11 +5505,6 @@ sinon@^18.0.1:
     nise "^6.0.0"
     supports-color "^7"
 
-slack-table@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/slack-table/-/slack-table-0.1.2.tgz#a8c76c8efed18e551681a612aa81ecb6fa1415aa"
-  integrity sha512-oa1W+pYrn6Yr4ceeCGgEw/d8E8WL49gFpL0awYMmRefgU9FCj9G/BJB1d1s+lzyzyYZjK2oKWKWlIbYXtPnwiw==
-
 slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
