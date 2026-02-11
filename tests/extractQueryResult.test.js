@@ -1,6 +1,6 @@
 import { mockClient } from 'aws-sdk-client-mock'
 import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
-import { handler } from '../functions/extractQueryResult'
+import { handler } from '../functions/extractQueryResult.js'
 
 const awsMock = mockClient(CloudWatchLogs)
 
@@ -10,7 +10,7 @@ describe('Extract Query Result', () => {
       status: 'Running',
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       name: 'service1-env-function-1',
       memorySize: 300,
@@ -50,7 +50,7 @@ describe('Extract Query Result', () => {
       ],
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       name: 'service1-env-function-1',
       memorySize: 300,

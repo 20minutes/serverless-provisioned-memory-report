@@ -10,7 +10,6 @@ export async function handler(event, context, callback) {
   const page = event?.page ?? 1
 
   do {
-    // eslint-disable-next-line no-await-in-loop
     result = await lambda.listFunctions({
       Marker: result?.NextMarker ?? null,
     })

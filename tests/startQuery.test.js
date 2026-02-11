@@ -1,6 +1,6 @@
 import { mockClient } from 'aws-sdk-client-mock'
 import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
-import { handler } from '../functions/startQuery'
+import { handler } from '../functions/startQuery.js'
 
 const awsMock = mockClient(CloudWatchLogs)
 
@@ -10,7 +10,7 @@ describe('Start Query', () => {
       queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
     })
 
-    const callback = jest.fn()
+    const callback = vi.fn()
     const event = {
       name: 'service1-env-function-1',
       memorySize: 300,

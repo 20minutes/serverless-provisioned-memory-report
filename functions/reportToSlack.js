@@ -105,7 +105,6 @@ export async function handler(event, context, callback) {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        // eslint-disable-next-line prettier/prettier
         text: `We did not found data for *${noData.length}* functions (\`${noData.join('`, `')}\`).`,
       },
     })
