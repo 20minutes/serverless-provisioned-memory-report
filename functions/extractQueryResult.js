@@ -1,6 +1,6 @@
 import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 
-export async function handler(event, context, callback) {
+export async function handler(event) {
   const cloudwatchlogs = new CloudWatchLogs()
 
   const result = await cloudwatchlogs.getQueryResults({
@@ -10,10 +10,10 @@ export async function handler(event, context, callback) {
   if (result.status === 'Running') {
     console.log(`Query "${event.queryId}" is still running...`)
 
-    return callback(null, {
+    return {
       ...event,
       running: true,
-    })
+    }
   }
 
   const mbResults = {
@@ -30,9 +30,9 @@ export async function handler(event, context, callback) {
 
   console.log(`Query "${event.queryId}" is complete!`)
 
-  return callback(null, {
+  return {
     ...event,
     ...mbResults,
     running: false,
-  })
+  }
 }

@@ -24,14 +24,9 @@ describe('List Lambdas', () => {
       ],
     })
 
-    const callback = vi.fn()
-
-    await handler({ channel: 'C03PE644XH8' }, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1].functions).toHaveLength(3)
-    expect(callbackCalls[1]).toEqual({
+    const result = await handler({ channel: 'C03PE644XH8' })
+    expect(result.functions).toHaveLength(3)
+    expect(result).toEqual({
       lambdasLimitReached: false,
       prefix: undefined,
       channel: 'C03PE644XH8',
@@ -63,14 +58,9 @@ describe('List Lambdas', () => {
       ],
     })
 
-    const callback = vi.fn()
-
-    await handler({ prefix: 'service2', days: 70 }, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1].functions).toHaveLength(1)
-    expect(callbackCalls[1]).toEqual({
+    const result = await handler({ prefix: 'service2', days: 70 })
+    expect(result.functions).toHaveLength(1)
+    expect(result).toEqual({
       lambdasLimitReached: false,
       prefix: 'service2',
       channel: '#general',
@@ -94,14 +84,9 @@ describe('List Lambdas', () => {
       Functions: functions,
     })
 
-    const callback = vi.fn()
-
-    await handler({}, {}, callback)
-
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1].functions).toHaveLength(20)
-    expect(callbackCalls[1].lambdasLimitReached).toBe(30)
+    const result = await handler({})
+    expect(result.functions).toHaveLength(20)
+    expect(result.lambdasLimitReached).toBe(30)
   })
 
   it('should list second page', async () => {
@@ -118,15 +103,23 @@ describe('List Lambdas', () => {
       Functions: functions,
     })
 
-    const callback = vi.fn()
+    const result = await handler({ page: 2 })
+    expect(result.functions).toHaveLength(10)
+    expect(result.lambdasLimitReached).toBe(30)
+    expect(result.page).toBe(2)
+    expect(result.totalPages).toBe(2)
+  })
 
-    await handler({ page: 2 }, {}, callback)
+  it('should fail when page is too high', async () => {
+    awsMock.resolves({
+      Functions: [
+        {
+          FunctionName: 'service-env-function-1',
+          MemorySize: 768,
+        },
+      ],
+    })
 
-    const callbackCalls = callback.mock.calls[0]
-    expect(callbackCalls[0]).toBe(null)
-    expect(callbackCalls[1].functions).toHaveLength(10)
-    expect(callbackCalls[1].lambdasLimitReached).toBe(30)
-    expect(callbackCalls[1].page).toBe(2)
-    expect(callbackCalls[1].totalPages).toBe(2)
+    await expect(handler({ page: 2 })).rejects.toThrow('Page is too hight')
   })
 })

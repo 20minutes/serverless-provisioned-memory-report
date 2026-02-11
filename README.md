@@ -41,7 +41,7 @@ Here are the actions you might take:
 
 ## Prerequisites
 
-- Node.js 22
+- Node.js 24
 - OSS Serverless (`npm install -g osls`)
 - An AWS account
 - Defined [provider credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)

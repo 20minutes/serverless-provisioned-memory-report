@@ -3,7 +3,7 @@ import { IncomingWebhook } from '@slack/webhook'
 
 const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL || '')
 
-export async function handler(event, context, callback) {
+export async function handler(event) {
   const data = {
     title: 'TOBEREMOVED',
     columns: [
@@ -115,5 +115,5 @@ export async function handler(event, context, callback) {
     blocks,
   })
 
-  return callback(null, 'Message sent')
+  return 'Message sent'
 }
