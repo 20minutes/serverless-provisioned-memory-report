@@ -1,5 +1,5 @@
-import slackTable from './lib/slackTable.js'
 import { IncomingWebhook } from '@slack/webhook'
+import slackTable from './lib/slackTable.js'
 
 const webhook = new IncomingWebhook(process.env.SLACK_WEBHOOK_URL || '')
 
