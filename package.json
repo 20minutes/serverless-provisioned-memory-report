@@ -9,7 +9,8 @@
   "scripts": {
     "test": "vitest run --silent",
     "test:coverage": "vitest run --coverage --silent",
-    "lint": "eslint functions/ tests/ eslint.config.mjs vitest.config.mjs"
+    "lint": "biome check --max-diagnostics=none",
+    "lint:fix": "biome check --write --unsafe --max-diagnostics=none"
   },
   "engines": {
     "npm": "please-use-yarn-instead",
@@ -17,18 +18,10 @@
     "node": ">= 24.13.0"
   },
   "devDependencies": {
-    "@20minutes/eslint-config": "^2",
+    "@20minutes/eslint-config": "^3.0.0",
     "@vitest/coverage-v8": "^4.0.18",
     "aws-sdk-client-mock": "^4.1.0",
     "esbuild": "^0.27.3",
-    "eslint": "^9",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7",
-    "prettier": "^3.8.1",
     "serverless-esbuild": "^1.57.0",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.23.4",

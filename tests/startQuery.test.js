@@ -1,5 +1,5 @@
-import { mockClient } from 'aws-sdk-client-mock'
 import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
+import { mockClient } from 'aws-sdk-client-mock'
 import { handler } from '../functions/startQuery.js'
 
 const awsMock = mockClient(CloudWatchLogs)

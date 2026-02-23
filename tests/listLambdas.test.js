@@ -1,5 +1,5 @@
-import { mockClient } from 'aws-sdk-client-mock'
 import { Lambda } from '@aws-sdk/client-lambda'
+import { mockClient } from 'aws-sdk-client-mock'
 import { handler } from '../functions/listLambdas.js'
 
 const awsMock = mockClient(Lambda)
