@@ -28,8 +28,8 @@
     "vitest": "^4.0.18"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.992.0",
-    "@aws-sdk/client-lambda": "^3.992.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.997.0",
+    "@aws-sdk/client-lambda": "^3.997.0",
     "@slack/webhook": "^7.0.7",
     "uri-js": "npm:uri-js-replace"
   },
