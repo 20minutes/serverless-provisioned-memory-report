@@ -30,7 +30,7 @@
   "dependencies": {
     "@aws-sdk/client-cloudwatch-logs": "^3.1011.0",
     "@aws-sdk/client-lambda": "^3.1011.0",
-    "@slack/webhook": "^7.0.7",
+    "@slack/webhook": "^7.0.8",
     "uri-js": "npm:uri-js-replace"
   },
   "resolutions": {
