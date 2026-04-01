@@ -3970,10 +3970,10 @@ serverless-iam-roles-per-function@^3.2.0:
   dependencies:
     lodash "^4.17.20"
 
-serverless-step-functions@^3.27.0:
-  version "3.27.0"
-  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.27.0.tgz#463fb092ad9cb60e92a8a102fda54089b0ecee55"
-  integrity sha512-jFjX3mZMo1vRGTsmSjhKW+lD4GW+UqTY3N5EIyzek/YVvh/SYNi+anqNKC/jEPyGfuDN2gZhlzEU9MTEaIziQA==
+serverless-step-functions@^3.28.2:
+  version "3.28.2"
+  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.28.2.tgz#9dee49d8911fda84f91b37f714a78c74a43f403b"
+  integrity sha512-0QsjOdkWakelH6EroYa+0IiWNPDyZgfy7P6FMGY8Wpy0L49pMPUM+KhaY6t7b8ccddrLRT+1XwZyoRpYi2c6YA==
   dependencies:
     "@serverless/utils" "^6.7.0"
     asl-validator "^3.11.0"
