@@ -1459,14 +1459,14 @@
   resolved "https://registry.yarnpkg.com/@slack/types/-/types-2.20.1.tgz#2528592813eb088691a8665d55e21ec47ddc8217"
   integrity sha512-eWX2mdt1ktpn8+40iiMc404uGrih+2fxiky3zBcPjtXKj6HLRdYlmhrPkJi7JTJm8dpXR6BWVWEDBXtaWMKD6A==
 
-"@slack/webhook@^7.0.8":
-  version "7.0.8"
-  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-7.0.8.tgz#1343221e9e85e854d639572343a130c4bf7075ae"
-  integrity sha512-x3gttyRJGZSeIm+juObzYsYEMa/weoeZUU3WDWwOCwmHhShSwtq1sj1jvuKx0mLNIA6VveVlc4zWvluhA6qcxg==
+"@slack/webhook@^7.0.9":
+  version "7.0.9"
+  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-7.0.9.tgz#563f7605287bd844c3507084d62d1d5ecf0d95d8"
+  integrity sha512-hMfkQ5Y3Y7FtL+ZYhcxFblidx4Z2LPRFrhY1KJb6NqQdnK6kzTzTS1mjH5taVQIB496eqwpg9FE9mq9BFx0DWw==
   dependencies:
     "@slack/types" "^2.20.1"
     "@types/node" ">=18"
-    axios "^1.13.5"
+    axios "^1.15.0"
 
 "@smithy/chunked-blob-reader-native@^4.2.3":
   version "4.2.3"
@@ -2397,7 +2397,7 @@ aws-sdk-client-mock@^4.1.0:
     sinon "^18.0.1"
     tslib "^2.1.0"
 
-axios@^1.13.5:
+axios@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.15.0.tgz#0fcee91ef03d386514474904b27863b2c683bf4f"
   integrity sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==
