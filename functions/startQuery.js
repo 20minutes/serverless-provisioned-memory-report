@@ -17,7 +17,7 @@ export async function handler(event) {
     logGroupName,
   })
 
-  console.log(`Query started for "${event.name}", with id: ${result.queryId}`)
+  console.info(`Query started for "${event.name}", with id: ${result.queryId}`)
 
   return {
     ...event,

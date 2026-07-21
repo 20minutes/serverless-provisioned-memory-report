@@ -22,15 +22,15 @@
     "@vitest/coverage-v8": "^4.1.10",
     "aws-sdk-client-mock": "^4.1.0",
     "esbuild": "^0.28.1",
-    "serverless": "npm:osls",
+    "serverless": "npm:osls@3",
     "serverless-esbuild": "^1.57.2",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.31.0",
     "vitest": "^4.1.10"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "^3.1087.0",
-    "@aws-sdk/client-lambda": "^3.1087.0",
+    "@aws-sdk/client-cloudwatch-logs": "^3.1091.0",
+    "@aws-sdk/client-lambda": "^3.1091.0",
     "@slack/webhook": "^8.0.0",
     "uri-js": "npm:uri-js-replace"
   },

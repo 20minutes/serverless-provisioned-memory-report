@@ -58,7 +58,7 @@ export async function handler(event) {
   }
 
   if (page > 1) {
-    console.log(`Found ${nbLambdas} functions, return page ${page} on ${totalPages}.`)
+    console.info(`Found ${nbLambdas} functions, return page ${page} on ${totalPages}.`)
 
     return {
       ...options,
@@ -71,7 +71,7 @@ export async function handler(event) {
     }
   }
   if (nbLambdas > numberPerPage) {
-    console.log(
+    console.warn(
       `Found ${nbLambdas} functions, but only the first ${numberPerPage} will be handled.`
     )
 
@@ -82,7 +82,7 @@ export async function handler(event) {
     }
   }
 
-  console.log(`Found ${nbLambdas} functions`)
+  console.info(`Found ${nbLambdas} functions`)
 
   // return the functions list to start a log insight query
   return {
