@@ -8,7 +8,7 @@ export async function handler(event) {
   })
 
   if (result.status === 'Running') {
-    console.log(`Query "${event.queryId}" is still running...`)
+    console.info(`Query "${event.queryId}" is still running...`)
 
     return {
       ...event,
@@ -28,7 +28,7 @@ export async function handler(event) {
     })
   }
 
-  console.log(`Query "${event.queryId}" is complete!`)
+  console.info(`Query "${event.queryId}" is complete!`)
 
   return {
     ...event,
