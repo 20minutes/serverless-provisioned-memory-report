@@ -36,7 +36,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-1',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: '286',
+          provisionedMemoryMB: '286',
           maxMemoryUsedMB: '246',
           overProvisionedMB: '40',
           running: false,
@@ -71,7 +71,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-1',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: '286',
+          provisionedMemoryMB: '286',
           maxMemoryUsedMB: '246',
           overProvisionedMB: '40',
           running: false,
@@ -80,7 +80,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-2',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: 0,
+          provisionedMemoryMB: 0,
           maxMemoryUsedMB: 0,
           overProvisionedMB: 0,
           running: false,
@@ -113,7 +113,7 @@ describe('Report To Slack', () => {
 
     expect(mockCalls.blocks[3].type).toBe('section')
     expect(mockCalls.blocks[3].text.text).toBe(
-      'We did not found data for *1* functions (`service1-env-function-2`).'
+      'We did not find data for *1* functions (`service1-env-function-2`).'
     )
     expect(mockCalls.blocks[3].text.type).toBe('mrkdwn')
   })
@@ -127,7 +127,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-1',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: '286',
+          provisionedMemoryMB: '286',
           maxMemoryUsedMB: '246',
           overProvisionedMB: '40',
           running: false,
@@ -164,7 +164,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-1',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: '286',
+          provisionedMemoryMB: '286',
           maxMemoryUsedMB: '246',
           overProvisionedMB: '40',
           running: false,
@@ -198,7 +198,7 @@ describe('Report To Slack', () => {
           name: 'service1-env-function-1',
           memorySize: 300,
           queryId: 'd992b1d7-d217-440e-834d-ca3fab97fd58',
-          provisonedMemoryMB: '286',
+          provisionedMemoryMB: '286',
           maxMemoryUsedMB: '246',
           overProvisionedMB: '40',
           running: false,
