@@ -28,7 +28,7 @@ export async function handler(event) {
       data.dataSource.push({
         func,
         defined: report.memorySize,
-        provisioned: Math.round(report.provisonedMemoryMB),
+        provisioned: Math.round(report.provisionedMemoryMB),
         max: Math.round(report.maxMemoryUsedMB),
         over: Math.round(report.overProvisionedMB),
       })
@@ -105,7 +105,7 @@ export async function handler(event) {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `We did not found data for *${noData.length}* functions (\`${noData.join('`, `')}\`).`,
+        text: `We did not find data for *${noData.length}* functions (\`${noData.join('`, `')}\`).`,
       },
     })
   }

@@ -1,13 +1,38 @@
 import { Lambda } from '@aws-sdk/client-lambda'
 
-export async function handler(event) {
+function parsePositiveInteger(value, defaultValue, name, maxValue = Number.POSITIVE_INFINITY) {
+  const parsedValue = Number(value ?? defaultValue)
+
+  if (!Number.isInteger(parsedValue) || parsedValue < 1 || parsedValue > maxValue) {
+    const maxMessage = Number.isFinite(maxValue) ? ` lower than or equal to ${maxValue}` : ''
+
+    throw new Error(`${name} must be a positive integer${maxMessage}`)
+  }
+
+  return parsedValue
+}
+
+export async function handler(event = {}) {
   // which is also the limit of queries to run in parallel on CloudWatchLogs
-  const numberPerPage = process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES
+  const numberPerPage = parsePositiveInteger(
+    process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES,
+    30,
+    'CLOUDWATCH_LOGS_PARALLEL_QUERIES',
+    30
+  )
   const lambda = new Lambda()
   let result
   const functions = []
-  const days = event?.days ?? 7
-  const page = event?.page ?? 1
+  const days = parsePositiveInteger(event.days, 7, 'days', 90)
+  const page = parsePositiveInteger(event.page, 1, 'page')
+
+  if (event.prefix !== undefined && typeof event.prefix !== 'string') {
+    throw new Error('prefix must be a string')
+  }
+
+  if (event.channel !== undefined && typeof event.channel !== 'string') {
+    throw new Error('channel must be a string')
+  }
 
   do {
     result = await lambda.listFunctions({
@@ -51,10 +76,20 @@ export async function handler(event) {
   const nbLambdas = filteredFunctions.length
   const totalPages = Math.ceil(nbLambdas / numberPerPage)
 
-  if (page > totalPages) {
-    console.error(`Given page ${page} is too hight. Total pages: ${totalPages}`)
+  if (nbLambdas === 0) {
+    console.info('Found 0 functions')
 
-    throw new Error('Page is too hight')
+    return {
+      ...options,
+      lambdasLimitReached: false,
+      functions: [],
+    }
+  }
+
+  if (page > totalPages) {
+    console.error(`Given page ${page} is too high. Total pages: ${totalPages}`)
+
+    throw new Error('Page is too high')
   }
 
   if (page > 1) {

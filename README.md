@@ -9,7 +9,7 @@ Analyse logs from Lambdas to determine the provisioned memory usage (defined, ma
 ## How it works
 
 1. We first fetch all your lambdas
-2. For each lambda, we run a custom CloudWatchLogs query to determine: provisoned memory, max used memory and over provisioned memory
+2. For each lambda, we run a custom CloudWatchLogs query to determine: provisioned memory, max used memory and over provisioned memory
 3. Once all queries are complete, we send the report to your Slack
 
 Here is the Step Functions definition:
@@ -20,7 +20,7 @@ Here is the Step Functions definition:
 
 Once you got the report, you can take action from it based on the _over_ column:
 - if the value is negative, it means you must increase the memory size of that lambda because it often hit the limit
-- if the value is high (compared to the defined memory), it means you can decrease the memory to something more that the max used
+- if the value is high (compared to the defined memory), it means you can decrease the memory to something more than the max used
 - if the value is between ~50 & ~100, the defined memory is fine!
 
 For example, take that report:
@@ -35,8 +35,8 @@ function3                 300         286      214       72
 
 Here are the actions you might take:
 
-1. `function1` must have more memory, define it to `1024` (or at least to something more that `768`)
-2. `function2` is over provisioned by a lot, lower it to `128`
+1. `function1` must have more memory, define it to `1024` (or at least to something more than `768`)
+2. `function2` is over-provisioned by a lot, lower it to `128`
 3. `function3` is fine
 
 ## Prerequisites
