@@ -7,7 +7,7 @@ export async function handler(event) {
     queryId: event.queryId,
   })
 
-  if (result.status === 'Running') {
+  if (['Running', 'Scheduled'].includes(result.status)) {
     console.info(`Query "${event.queryId}" is still running...`)
 
     return {
@@ -16,13 +16,17 @@ export async function handler(event) {
     }
   }
 
+  if (result.status !== 'Complete') {
+    throw new Error(`Query "${event.queryId}" ended with status: ${result.status}`)
+  }
+
   const mbResults = {
-    provisonedMemoryMB: 0,
+    provisionedMemoryMB: 0,
     maxMemoryUsedMB: 0,
     overProvisionedMB: 0,
   }
 
-  if (result.results.length !== 0) {
+  if (result.results?.length > 0) {
     result.results[0].forEach((res) => {
       mbResults[res.field] = res.value
     })
