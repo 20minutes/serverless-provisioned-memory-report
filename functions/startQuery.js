@@ -2,18 +2,19 @@ import { CloudWatchLogs } from '@aws-sdk/client-cloudwatch-logs'
 
 export async function handler(event) {
   const cloudwatchlogs = new CloudWatchLogs()
-  const timestamp = new Date()
+  const endTime = Math.floor(Date.now() / 1000)
+  const startTime = endTime - event.days * 24 * 60 * 60
   const logGroupName = `/aws/lambda/${event.name}`
 
   const result = await cloudwatchlogs.startQuery({
-    endTime: timestamp.getTime(),
+    endTime,
     queryString: `
         filter @type = "REPORT"
-        | stats max(@memorySize / 1024 / 1024) as provisonedMemoryMB,
+        | stats max(@memorySize / 1024 / 1024) as provisionedMemoryMB,
           max(@maxMemoryUsed / 1024 / 1024) as maxMemoryUsedMB,
-          provisonedMemoryMB - maxMemoryUsedMB as overProvisionedMB
+          provisionedMemoryMB - maxMemoryUsedMB as overProvisionedMB
       `,
-    startTime: timestamp.setDate(timestamp.getDate() - event.days),
+    startTime,
     logGroupName,
   })
 
