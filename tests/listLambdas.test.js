@@ -1,11 +1,14 @@
-import { Lambda } from '@aws-sdk/client-lambda'
+import { Lambda, ListFunctionsCommand } from '@aws-sdk/client-lambda'
 import { mockClient } from 'aws-sdk-client-mock'
 import { handler } from '../functions/listLambdas.js'
 
 const awsMock = mockClient(Lambda)
-process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
 
 describe('List Lambdas', () => {
+  beforeEach(() => {
+    awsMock.reset()
+    process.env.CLOUDWATCH_LOGS_PARALLEL_QUERIES = 20
+  })
   it('should list all lambdas', async () => {
     awsMock.resolves({
       Functions: [
@@ -110,6 +113,72 @@ describe('List Lambdas', () => {
     expect(result.totalPages).toBe(2)
   })
 
+  it('should handle AWS pagination', async () => {
+    awsMock
+      .on(ListFunctionsCommand)
+      .resolvesOnce({
+        NextMarker: 'next-page',
+        Functions: [
+          {
+            FunctionName: 'service-env-function-2',
+            MemorySize: 512,
+          },
+        ],
+      })
+      .resolvesOnce({
+        Functions: [
+          {
+            FunctionName: 'service-env-function-1',
+            MemorySize: 768,
+          },
+        ],
+      })
+
+    const result = await handler({})
+
+    expect(result.functions).toEqual([
+      { name: 'service-env-function-1', memorySize: 768, days: 7 },
+      { name: 'service-env-function-2', memorySize: 512, days: 7 },
+    ])
+    expect(awsMock.commandCalls(ListFunctionsCommand)).toHaveLength(2)
+    expect(awsMock.commandCalls(ListFunctionsCommand)[0].firstArg.input).toEqual({
+      Marker: null,
+    })
+    expect(awsMock.commandCalls(ListFunctionsCommand)[1].firstArg.input).toEqual({
+      Marker: 'next-page',
+    })
+  })
+
+  it('should handle an empty filtered result', async () => {
+    awsMock.resolves({
+      Functions: [
+        {
+          FunctionName: 'service-env-function-1',
+          MemorySize: 768,
+        },
+      ],
+    })
+
+    await expect(handler({ prefix: 'unknown' })).resolves.toEqual({
+      lambdasLimitReached: false,
+      prefix: 'unknown',
+      channel: '#general',
+      days: 7,
+      page: 1,
+      functions: [],
+    })
+  })
+
+  it('should validate input options', async () => {
+    await expect(handler({ days: 0 })).rejects.toThrow('days must be a positive integer')
+    await expect(handler({ days: 91 })).rejects.toThrow(
+      'days must be a positive integer lower than or equal to 90'
+    )
+    await expect(handler({ page: 0 })).rejects.toThrow('page must be a positive integer')
+    await expect(handler({ prefix: 123 })).rejects.toThrow('prefix must be a string')
+    await expect(handler({ channel: 123 })).rejects.toThrow('channel must be a string')
+  })
+
   it('should fail when page is too high', async () => {
     awsMock.resolves({
       Functions: [
@@ -120,6 +189,6 @@ describe('List Lambdas', () => {
       ],
     })
 
-    await expect(handler({ page: 2 })).rejects.toThrow('Page is too hight')
+    await expect(handler({ page: 2 })).rejects.toThrow('Page is too high')
   })
 })
