@@ -3862,10 +3862,10 @@ serverless-iam-roles-per-function@^3.2.0:
   dependencies:
     lodash "^4.17.20"
 
-serverless-step-functions@^3.31.0:
-  version "3.31.1"
-  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.31.1.tgz#58868a8f45ad08a681874407794cae06b5bb8f03"
-  integrity sha512-sUnCItTgwj9jEIYrWAoIiEY4kplDk+tJFWcaRpvPgcBdS1dd0iJzxqADJ6L5AiswPfrtwdp9gjoBbYreMcJ9hg==
+serverless-step-functions@^3.31.2:
+  version "3.31.2"
+  resolved "https://registry.yarnpkg.com/serverless-step-functions/-/serverless-step-functions-3.31.2.tgz#49bd9484acf6be6b47178b955f7ba922425c83cc"
+  integrity sha512-hKjq498iTKA5y9yaUIbQZx6waiAc+123Ii2QWl9FNJLiJ+kh22nrvaGQyKeXu7AUCRQ+JwTDar3oI/QeuxbDCA==
   dependencies:
     "@aws-sdk/client-cloudformation" "^3.700.0"
     "@aws-sdk/client-sfn" "^3.700.0"
