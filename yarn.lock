@@ -1124,20 +1124,20 @@
     "@sinonjs/commons" "^3.0.1"
     type-detect "^4.1.0"
 
-"@slack/types@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@slack/types/-/types-3.0.0.tgz#be620fb6ff6e7150b26f189c09760ffbb026428d"
-  integrity sha512-KNOqpnNAlsFt5Jk9XBclslQ0lobRIg/0tnhpmvZJAglHJx9E8oceN8hC3gaBzkR6UzQ9Wzq4rLsJ98wUcxWPfw==
+"@slack/types@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@slack/types/-/types-3.1.0.tgz#7509e4a3530ab42f290e8a58a6ed1a0459eea3e7"
+  integrity sha512-bTzqrO3lxJ5iWedo1eJKNAs1koyEhaTwKLJUkD3KETnPeQvD978AAE4jvWstUws8Gbbc4JR6iYE6F7XjE8UGmw==
 
-"@slack/webhook@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-8.0.0.tgz#95aeb73a3f425d3e98262cc79fcb7e996ca7374d"
-  integrity sha512-j3VhO6u1rZYDvY2LXDzymGQGHW4NqWLyKkOgrXeE20CsrI39j0E5gHuss+PgVDqSBx4OTUKccF/Vcm9ICC4S5w==
+"@slack/webhook@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-8.0.2.tgz#87167e8db2ee30a70d7f47b0f049b9e95bb12690"
+  integrity sha512-gBPlV9W6zfP4qcijX47Ni5GznbZ8Q7oZYnCQMGkOGnEHPny+gR1xpjaUdafSwGNEVKjHtW39+A2Upzg1GPHyVg==
   dependencies:
-    "@slack/types" "^3.0.0"
+    "@slack/types" "^3.1.0"
     "@types/node" ">=20"
-    "@types/retry" "0.12.0"
-    p-retry "^4"
+    "@types/retry" "0.12.5"
+    p-retry "^4.6.2"
     retry "^0.13.1"
 
 "@smithy/core@^3.21.1", "@smithy/core@^3.23.16", "@smithy/core@^3.29.4", "@smithy/core@^3.29.6", "@smithy/core@^3.31.1", "@smithy/core@^3.33.2", "@smithy/core@^3.33.3":
@@ -1250,6 +1250,11 @@
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.0.tgz#2b35eccfcee7d38cd72ad99232fbd58bffb3c84d"
   integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
+
+"@types/retry@0.12.5":
+  version "0.12.5"
+  resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.5.tgz#f090ff4bd8d2e5b940ff270ab39fd5ca1834a07e"
+  integrity sha512-3xSjTp3v03X/lSQLkczaN9UIEwJMoMCA1+Nb5HfbJEQWogdeQIyVtTvxPXDQjZ5zws8rFQfVfRdz03ARihPJgw==
 
 "@types/sinon@^17.0.3":
   version "17.0.4"
@@ -3505,7 +3510,7 @@ p-map@^4.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
-p-retry@^4:
+p-retry@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/p-retry/-/p-retry-4.6.2.tgz#9baae7184057edd4e17231cee04264106e092a16"
   integrity sha512-312Id396EbJdvRONlngUx0NydfrIQ5lsYu0znKVUzVvArzEIt08V1qhtyESbGVd1FGX7UKtiFp5uwKZdM8wIuQ==
