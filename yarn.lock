@@ -57,10 +57,10 @@
     "@smithy/types" "^4.17.2"
     tslib "^2.6.2"
 
-"@aws-sdk/client-cloudwatch-logs@^3.1141.0":
-  version "3.1141.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.1141.0.tgz#f1564f3468817f3447b5ed8bbede9968b06fcd64"
-  integrity sha512-ReFRgWxiwfQo2Rr1CZhVXdk7MWQtIld0/uQGS6qtEvPlGcyP6VM47U+1g1o+JVr8SkBck2yFSANaVsFbrr/e0Q==
+"@aws-sdk/client-cloudwatch-logs@^3.1146.0":
+  version "3.1146.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-cloudwatch-logs/-/client-cloudwatch-logs-3.1146.0.tgz#a9b20855171b81863a33649a12968e9a37f4d0a3"
+  integrity sha512-5axmLYvZ8yrrkhL3m4Qnxp/XJdW2s0gdIef+zwKGuTWjN6D9hYFBrG4C2h6mBDEKFUvmGFl1Yh1NliRI1AgjFg==
   dependencies:
     "@aws-sdk/core" "^3.978.1"
     "@aws-sdk/credential-provider-node" "^3.972.84"
@@ -114,10 +114,10 @@
     "@smithy/types" "^4.17.2"
     tslib "^2.6.2"
 
-"@aws-sdk/client-lambda@^3.1141.0", "@aws-sdk/client-lambda@^3.975.0":
-  version "3.1141.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.1141.0.tgz#f4f8d62a82276efa7920cae898842d57398c32cd"
-  integrity sha512-xp/96eYrHkWVQbgEuDii170j7Kv397NYYv55sX99VV1M676rpl6MlbatRkdPZX7iV3M7ICm2fuSgR2n1bFNKaw==
+"@aws-sdk/client-lambda@^3.1146.0", "@aws-sdk/client-lambda@^3.975.0":
+  version "3.1146.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/client-lambda/-/client-lambda-3.1146.0.tgz#0532020dee9e7305e74dbd4e191b10a5e3ab27e6"
+  integrity sha512-qCeVHGhkI5aw0Lvexhwuf1H41L2sCm+9C4K+IOUhErY/nx5ioCU0dFyXF4+P4m4Nk23uiTbON7lI7nmlPNncHw==
   dependencies:
     "@aws-sdk/core" "^3.978.1"
     "@aws-sdk/credential-provider-node" "^3.972.84"
