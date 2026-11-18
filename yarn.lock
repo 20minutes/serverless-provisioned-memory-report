@@ -4336,9 +4336,9 @@ universalify@^2.0.0:
   integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
 
 "uri-js@npm:uri-js-replace":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/uri-js-replace/-/uri-js-replace-1.0.2.tgz#22c0fbafe0531804739bd0962f5572059ef18c47"
-  integrity sha512-VeBBt/nMxedczht3KDL2yBBMJqIxpCQLMZp3UJ1otcWwUHdQW4IiyHpJivExzSK+FdxTowRfGL4FmwDqH9+S8Q==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/uri-js-replace/-/uri-js-replace-1.0.3.tgz#6733d6bda398d5a69a251eea8775e55c3706df30"
+  integrity sha512-MMvVPvWo7I8nHX2Qn3+cji4YPAvEqBKjBoUqt7Z0RpE5hLdDpRLqaNfJtTwf56m40EQt2fJfptnrQdL2LXR99A==
 
 url@0.10.3:
   version "0.10.3"
