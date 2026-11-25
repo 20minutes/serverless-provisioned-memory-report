@@ -1130,17 +1130,25 @@
     "@sinonjs/commons" "^3.0.1"
     type-detect "^4.1.0"
 
-"@slack/types@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@slack/types/-/types-3.1.0.tgz#7509e4a3530ab42f290e8a58a6ed1a0459eea3e7"
-  integrity sha512-bTzqrO3lxJ5iWedo1eJKNAs1koyEhaTwKLJUkD3KETnPeQvD978AAE4jvWstUws8Gbbc4JR6iYE6F7XjE8UGmw==
-
-"@slack/webhook@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-8.0.2.tgz#87167e8db2ee30a70d7f47b0f049b9e95bb12690"
-  integrity sha512-gBPlV9W6zfP4qcijX47Ni5GznbZ8Q7oZYnCQMGkOGnEHPny+gR1xpjaUdafSwGNEVKjHtW39+A2Upzg1GPHyVg==
+"@slack/logger@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@slack/logger/-/logger-5.0.0.tgz#d3fb03c1237d1d4fa8f51812843d6bab41352705"
+  integrity sha512-VGXhmmgsAo9shdQYh4tFDndd+7nsgp0Y5h0UPDaUp8K359pBasI6YdkMqFW3mCOxLQkq09qj7o7cq6f3DuXcJQ==
   dependencies:
-    "@slack/types" "^3.1.0"
+    "@types/node" ">=20"
+
+"@slack/types@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@slack/types/-/types-3.3.1.tgz#3e33f61d4dcc131d9b2d09de9895e40ab45ae311"
+  integrity sha512-F4JJd1SY5Nro1O6O4izMrBv0/IOpr+a8GGewr23tnP8zO1t9mWFLBjpNPv6nxuxhhw4JVRM9CPltBnLkZj7Ucw==
+
+"@slack/webhook@^8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@slack/webhook/-/webhook-8.1.0.tgz#3fbd4bbb184fa2b665797d09bfa0eb4e07278454"
+  integrity sha512-KyKEuxPvenjlJk5UIXr7rdzfw7KQAuCdW6uEU85iX8TCLW8XXtbdggF2xTifhScom8Ry+KV/XciKg2ciB+95MQ==
+  dependencies:
+    "@slack/logger" "^5.0.0"
+    "@slack/types" "^3.3.1"
     "@types/node" ">=20"
     "@types/retry" "0.12.5"
     p-retry "^4.6.2"
