@@ -23,7 +23,7 @@
     "aws-sdk-client-mock": "^4.1.0",
     "esbuild": "^0.28.2",
     "serverless": "npm:osls@3",
-    "serverless-esbuild": "^1.57.2",
+    "serverless-esbuild": "^1.57.4",
     "serverless-iam-roles-per-function": "^3.2.0",
     "serverless-step-functions": "^3.31.2",
     "vite": "^8.3.8",
